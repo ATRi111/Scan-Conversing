@@ -78,7 +78,7 @@ class Vector3
 	{
 		return sqrtf(x * x + y * y + z * z);
 	}
-	Vector3& Normalized()
+	Vector3& Normalize()
 	{
 		float f = Magnitude();
 		if (f != 0)
@@ -89,7 +89,7 @@ class Vector3
 		}
 		return *this;
 	}
-	Vector3 Normalized() const
+	Vector3 Normalize() const
 	{
 		float f = Magnitude();
 		if (f == 0)

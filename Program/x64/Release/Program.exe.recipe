@@ -2,7 +2,7 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>D:\Project\C++\Scan-Conversing\x64\Debug\Program.exe</FullPath>
+      <FullPath>D:\Project\C++\Scan-Conversing\x64\Release\Program.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />
