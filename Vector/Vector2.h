@@ -60,7 +60,7 @@ struct Vector2
 	{
 		return sqrtf(x * x + y * y);
 	}
-	Vector2& Normalized()
+	Vector2& Normalize()
 	{
 		float f = Magnitude();
 		if (f != 0)
