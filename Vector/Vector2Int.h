@@ -52,10 +52,6 @@ public:
 	{
 		return x * x + y * y;
 	}
-	float Magnitude() const
-	{
-		return sqrtf(x * x + y * y);
-	}
 };
 
 inline Vector2Int operator*(int i, const Vector2Int& v)
