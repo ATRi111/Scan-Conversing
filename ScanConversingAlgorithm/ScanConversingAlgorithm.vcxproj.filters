@@ -24,6 +24,12 @@
     <ClInclude Include="OrderedEdge.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="OrderedEdgeContainer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ActiveEdgeContainer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ScanConversingAlgorithm.cpp">
@@ -33,6 +39,12 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="OrderedEdge.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="OrderedEdgeContainer.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ActiveEdgeContainer.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
