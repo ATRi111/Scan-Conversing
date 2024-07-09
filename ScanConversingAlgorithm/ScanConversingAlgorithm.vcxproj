@@ -131,10 +131,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="ScanlineAlgorithm.h" />
+    <ClInclude Include="OrderedEdge.h" />
+    <ClInclude Include="ScanConversingAlgorithm.h" />
+    <ClInclude Include="XScanlineAlgorithm.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ScanlineAlgorithm.cpp" />
+    <ClCompile Include="OrderedEdge.cpp" />
+    <ClCompile Include="ScanConversingAlgorithm.cpp" />
+    <ClCompile Include="XScanlineAlgorithm.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Test\Test.vcxproj">
