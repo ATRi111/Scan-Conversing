@@ -4,7 +4,13 @@ using namespace std;
 #pragma region ScanConversingAlgorithm
 TestAnswer* ScanConversingAlgorithm::Run(TestCase* t, Stopwatch* timer)
 {
-	return nullptr;
+	TestCase_ScanConversing* p = dynamic_cast<TestCase_ScanConversing*>(t);
+	if (timer)
+		timer->Start();
+	Scan(p->vertices, p->vertexCount, p->buffer, p->rowSize, p->columnSize);
+	if (timer)
+		timer->Pause();
+	return new TestAnswer_ScanConversing(p->buffer, p->rowSize, p->columnSize);
 }
 void ScanConversingAlgorithm::Scan(Vector2Int* vertices, int vertexCount, int** buffer, int rowSize, int columnSize)
 {
