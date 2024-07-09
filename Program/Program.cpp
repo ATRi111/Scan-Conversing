@@ -10,14 +10,19 @@ public:
 		return new MyAlgorithm();
 	}
 
-	//根据输入的vertices，更新对应位置buffer的值
+	//buffer相当于颜色缓冲,左下角坐标为(0,0)，右上角坐标为(rowSize-1,columnSize-1)
+	//根据输入的vertices,更新buffer,不在多边形内部的点保持默认值0，在多边形内部的点应设为1
 	void Scan(Vector2Int* vertices, int vertexCount, int** buffer, int rowSize, int columnSize) override
 	{
 		//完成这个函数
 	}
 };
 
-int main()
+int main(int argc, char* argv[])
 {
+	string path = argv[0];
+	path = path.substr(0, path.find_last_of('\\')) + "\\Answer.txt";
+	int times = 100000;		//控制算法运行次数；测试集中包含100个测试用例，则总运行次数=times×100
+
 
 }

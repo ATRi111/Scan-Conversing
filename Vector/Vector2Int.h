@@ -1,7 +1,7 @@
 #pragma once
 #include"Vector2.h"
 
-class Vector2Int
+struct Vector2Int
 {
 	const static Vector2Int Zero;
 	const static Vector2Int One;
@@ -9,7 +9,7 @@ class Vector2Int
 	const static Vector2Int Down;
 	const static Vector2Int Right;
 	const static Vector2Int Left;
-public:
+
 	int x, y;
 	Vector2Int()
 		:x(0), y(0)

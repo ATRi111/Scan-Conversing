@@ -1,4 +1,4 @@
-#include "ScanlineAlgorithm.h"
+#include "ScanConversingAlgorithm.h"
 using namespace std;
 
 #pragma region ScanConversingAlgorithm
