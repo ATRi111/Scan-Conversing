@@ -12,6 +12,6 @@ public:
 	int currentY;
 
 	ActiveEdgeContainer(OrderedEdgeContainer& container);
-	bool MoveUp(std::vector<Vector2Int> ret);
+	bool MoveUp(std::vector<int> ret);
 };
 

@@ -7,7 +7,7 @@ ActiveEdgeContainer::ActiveEdgeContainer(OrderedEdgeContainer& container)
 	currentY = container.yMin - 1;
 }
 
-bool ActiveEdgeContainer::MoveUp(std::vector<Vector2Int> ret)
+bool ActiveEdgeContainer::MoveUp(std::vector<int> ret)
 {
     currentY++;
     for (int i = 0; i < edges.size(); i++)
@@ -29,7 +29,7 @@ bool ActiveEdgeContainer::MoveUp(std::vector<Vector2Int> ret)
     std::sort(edges.begin(), edges.end(), OrderedEdge::Compare);
     for (int i = 0; i < edges.size(); i++)
     {
-        ret.push_back(Vector2Int(edges[i]->CurrentX(), currentY));
+        ret.push_back(edges[i]->CurrentX());
     }
     return true;
 }

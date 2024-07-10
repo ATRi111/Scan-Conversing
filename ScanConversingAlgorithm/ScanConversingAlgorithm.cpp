@@ -31,6 +31,10 @@ TestCase_ScanConversing::TestCase_ScanConversing(Vector2Int* vertices, int verte
 	for (int i = 0; i < rowSize; i++)
 	{
 		buffer[i] = new int[columnSize];
+		for (int j = 0; j < columnSize; j++)
+		{
+			buffer[i][j] = 0;
+		}
 	}
 }
 TestCase_ScanConversing::~TestCase_ScanConversing()
