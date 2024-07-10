@@ -22,7 +22,7 @@ OrderedEdgeContainer::OrderedEdgeContainer(Vector2Int* vertices, int vertexCount
     }
 }
 
-OrderedEdge* OrderedEdgeContainer::GetHead(int y) const
+OrderedEdge* OrderedEdgeContainer::GetHead(int y)
 {
     return list[y - yMin];
 }

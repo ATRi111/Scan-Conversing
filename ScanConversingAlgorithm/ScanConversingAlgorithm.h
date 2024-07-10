@@ -4,6 +4,7 @@
 
 class ScanConversingAlgorithm : public Algorithm
 {
+public:
 	TestAnswer* Run(TestCase* t, Stopwatch* timer) override;
 	virtual void Scan(Vector2Int* vertices, int vertexCount, int** buffer, int rowSize, int columnSize);
 };

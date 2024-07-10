@@ -8,7 +8,7 @@ public:
 	int yMin, yMax;
 	OrderedEdge** list;
 	OrderedEdgeContainer(Vector2Int* vertices, int vertexCount);
-	OrderedEdge* GetHead(int y) const;
+	OrderedEdge* GetHead(int y);
 	OrderedEdge** GetHeadPtr(int y);
 	void Add(OrderedEdge* edge);
 };
