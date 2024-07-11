@@ -2,7 +2,7 @@
 #include<vector>
 using namespace std;
 
-void XScanlineAlgorithm::Scan(Vector2Int* vertices, int vertexCount, int** buffer, int rowSize, int columnSize)
+void XScanlineAlgorithm::Scan(Vector2Int* vertices, int vertexCount, int** buffer, int width, int height)
 {
 	vector<int> xs;
 	orderedEdges = new OrderedEdgeContainer(vertices, vertexCount);
@@ -12,10 +12,11 @@ void XScanlineAlgorithm::Scan(Vector2Int* vertices, int vertexCount, int** buffe
 		cout << xs.size() << endl;
 		for (int i = 0; i < xs.size(); i+= 2)
 		{
-			for (int j = xs[i]; i < xs[i + 1]; i++)		//[left,right)
+			for (int j = xs[i]; j < xs[i + 1]; j++)		//[left,right)
 			{
 				buffer[j][activeEdges->currentY] = 1;
 			}
+			xs.clear();
 		}
 	}
 }

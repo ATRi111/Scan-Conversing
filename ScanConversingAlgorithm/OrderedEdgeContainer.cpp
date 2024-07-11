@@ -11,7 +11,12 @@ OrderedEdgeContainer::OrderedEdgeContainer(Vector2Int* vertices, int vertexCount
         yMin = min(yMin, vertices[i].y);
         yMax = max(yMax, vertices[i].y);
     }
-    list = new OrderedEdge * [yMax - yMin + 1];
+    int size = yMax - yMin + 1;
+    list = new OrderedEdge * [size];
+    for (int i = 0; i < size; i++)
+    {
+        list[i] = nullptr;
+    }
     for (int i = 0; i < vertexCount; i++)
     {
         from = vertices[i];

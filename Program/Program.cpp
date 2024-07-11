@@ -10,9 +10,9 @@ public:
 		return new MyAlgorithm();
 	}
 
-	//buffer相当于颜色缓冲,左下角坐标为(0,0)，右上角坐标为(rowSize-1,columnSize-1)
+	//buffer相当于颜色缓冲,左下角坐标为(0,0)，右上角坐标为(width-1,height-1)
 	//根据输入的vertices,更新buffer,不在多边形内部的点保持默认值0，在多边形内部的点应设为1
-	void Scan(Vector2Int* vertices, int vertexCount, int** buffer, int rowSize, int columnSize) override
+	void Scan(Vector2Int* vertices, int vertexCount, int** buffer, int width, int height) override
 	{
 		//完成这个函数
 	}
