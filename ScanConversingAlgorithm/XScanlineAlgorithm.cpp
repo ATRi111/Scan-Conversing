@@ -9,9 +9,10 @@ void XScanlineAlgorithm::Scan(Vector2Int* vertices, int vertexCount, int** buffe
 	activeEdges = new ActiveEdgeContainer(*orderedEdges);
 	for (; activeEdges->MoveUp(xs);)
 	{
+		cout << xs.size() << endl;
 		for (int i = 0; i < xs.size(); i+= 2)
 		{
-			for (int j = xs[i]; i < xs[i + 1]; i++)		//[lfet,right)
+			for (int j = xs[i]; i < xs[i + 1]; i++)		//[left,right)
 			{
 				buffer[j][activeEdges->currentY] = 1;
 			}

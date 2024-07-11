@@ -1,4 +1,4 @@
-#include "ScanConversingAlgorithm.h"
+﻿#include "ScanConversingAlgorithm.h"
 using namespace std;
 
 #pragma region ScanConversingAlgorithm
@@ -45,6 +45,16 @@ TestCase_ScanConversing::~TestCase_ScanConversing()
 		delete[] buffer[i];
 	}
 	delete[] buffer;
+}
+void TestCase_ScanConversing::Print() const
+{
+	cout << "顶点序列:";
+	for (int i = 0; i < vertexCount; i++)
+	{
+		cout << vertices[i] << " ";
+	}
+	cout << endl;
+	cout << "缓冲区大小:" << rowSize << "×" << columnSize << endl;
 }
 #pragma endregion
 

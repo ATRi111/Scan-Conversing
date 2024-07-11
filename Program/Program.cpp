@@ -22,7 +22,18 @@ int main(int argc, char* argv[])
 {
 	string path = argv[0];
 	path = path.substr(0, path.find_last_of('\\')) + "\\Answer.txt";
-	int times = 100000;		//控制算法运行次数；测试集中包含100个测试用例，则总运行次数=times×100
+	int times = 100;		//控制算法运行次数；测试集中包含100个测试用例，则总运行次数=times×100
 
-
+	XScanlineAlgorithm algorithm = XScanlineAlgorithm();
+	Vector2Int vertices[4] =
+	{
+		 Vector2Int(2, 4),
+		 Vector2Int(4, 4),
+		 Vector2Int(4, 8),
+		 Vector2Int(2, 8),
+	};
+	TestCase* t = new TestCase_ScanConversing(vertices, 4, 10, 10);
+	t->Print();
+	TestAnswer* a = algorithm.Run(t, nullptr);
+	a->Print();
 }

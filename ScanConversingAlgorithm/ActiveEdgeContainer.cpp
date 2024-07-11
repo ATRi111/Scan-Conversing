@@ -7,7 +7,7 @@ ActiveEdgeContainer::ActiveEdgeContainer(OrderedEdgeContainer& container)
 	currentY = container.yMin - 1;
 }
 
-bool ActiveEdgeContainer::MoveUp(std::vector<int> ret)
+bool ActiveEdgeContainer::MoveUp(std::vector<int>& ret)
 {
     currentY++;
     for (int i = 0; i < edges.size(); i++)

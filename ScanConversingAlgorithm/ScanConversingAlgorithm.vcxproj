@@ -136,6 +136,7 @@
     <ClInclude Include="OrderedEdgeContainer.h" />
     <ClInclude Include="ScanConversingAlgorithm.h" />
     <ClInclude Include="XScanlineAlgorithm.h" />
+    <ClInclude Include="ScanConversing.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ActiveEdgeContainer.cpp" />

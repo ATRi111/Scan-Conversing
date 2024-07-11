@@ -17,6 +17,7 @@ struct TestCase_ScanConversing : TestCase
 	int rowSize, columnSize;
 	TestCase_ScanConversing(Vector2Int* vertices, int vertexCount, int rowSize, int columnSize);
 	~TestCase_ScanConversing();
+	void Print() const override;
 };
 
 struct TestAnswer_ScanConversing : TestAnswer

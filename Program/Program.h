@@ -1,2 +1,2 @@
 #pragma once
-#include"ScanConversingAlgorithm.h"
+#include"ScanConversing.h"
