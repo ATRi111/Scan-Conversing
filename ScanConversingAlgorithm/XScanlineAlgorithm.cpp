@@ -2,6 +2,11 @@
 #include<vector>
 using namespace std;
 
+XScanlineAlgorithm* XScanlineAlgorithm::CreateXScanlineAlgorithm()
+{
+	return new XScanlineAlgorithm();
+}
+
 void XScanlineAlgorithm::Scan(Vector2Int* vertices, int vertexCount, int** buffer, int width, int height)
 {
 	vector<int> xs;
@@ -9,7 +14,6 @@ void XScanlineAlgorithm::Scan(Vector2Int* vertices, int vertexCount, int** buffe
 	activeEdges = new ActiveEdgeContainer(*orderedEdges);
 	for (; activeEdges->MoveUp(xs);)
 	{
-		cout << xs.size() << endl;
 		for (int i = 0; i < xs.size(); i+= 2)
 		{
 			for (int j = xs[i]; j < xs[i + 1]; j++)		//[left,right)

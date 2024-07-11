@@ -24,7 +24,8 @@ int main(int argc, char* argv[])
 	path = path.substr(0, path.find_last_of('\\')) + "\\Answer.txt";
 	int times = 100;		//控制算法运行次数；测试集中包含100个测试用例，则总运行次数=times×100
 
-	XScanlineAlgorithm algorithm = XScanlineAlgorithm();
+	XScanlineAlgorithm algorithm1 = XScanlineAlgorithm();
+	EdgeFlagAlgorithm algorithm2 = EdgeFlagAlgorithm();
 	Vector2Int vertices[4] =
 	{
 		 Vector2Int(2, 4),
@@ -32,8 +33,13 @@ int main(int argc, char* argv[])
 		 Vector2Int(4, 8),
 		 Vector2Int(2, 8),
 	};
-	TestCase* t = new TestCase_ScanConversing(vertices, 4, 10, 10);
-	t->Print();
-	TestAnswer* a = algorithm.Run(t, nullptr);
-	a->Print();
+	TestCase* t1 = new TestCase_ScanConversing(vertices, 4, 10, 10);
+	t1->Print();
+	TestAnswer* a1 = algorithm1.Run(t1, nullptr);
+	a1->Print();
+	cout << endl;
+
+	TestCase* t2 = new TestCase_ScanConversing(vertices, 4, 10, 10);
+	TestAnswer* a2 = algorithm2.Run(t2, nullptr);
+	a2->Print();
 }

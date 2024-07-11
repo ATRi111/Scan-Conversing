@@ -4,3 +4,4 @@
 #include"OrderedEdge.h"
 #include"XScanlineAlgorithm.h"
 #include"ScanConversingAlgorithm.h"
+#include"EdgeFlagAlgorithm.h"

@@ -22,6 +22,7 @@ struct TestCase_ScanConversing : TestCase
 
 struct TestAnswer_ScanConversing : TestAnswer
 {
+	static void PrintBuffer(int** buffer, int width, int height);
 	//this class do not takes ownership of buffer
 	int** buffer;
 	int width;

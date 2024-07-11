@@ -60,6 +60,20 @@ void TestCase_ScanConversing::Print() const
 
 
 #pragma region TestAnswer_ScanConversing
+void TestAnswer_ScanConversing::PrintBuffer(int** buffer, int width, int height)
+{
+	char* line = new char[width + 1];
+	for (int i = height - 1; i >= 0; i--)
+	{
+		for (int j = 0; j < width; j++)
+		{
+			line[j] = buffer[j][i] + '0';
+		}
+		line[width] = '\0';
+		cout << line << endl;
+	}
+}
+
 TestAnswer_ScanConversing::TestAnswer_ScanConversing(int** buffer,int width,int height)
 	:buffer(buffer), width(width), height(height)
 {
@@ -81,16 +95,6 @@ bool TestAnswer_ScanConversing::Match(TestAnswer* other) const
 }
 void TestAnswer_ScanConversing::Print() const
 {
-	cout << endl;
-	char* line = new char[width + 1]; 
-	for (int i = height - 1; i >= 0; i--)
-	{
-		for (int j = 0; j < width; j++)
-		{
-			line[j] = buffer[j][i] + '0';
-		}
-		line[width] = '\0';
-		cout << line << endl;
-	}
+	PrintBuffer(buffer, width, height);
 }
 #pragma endregion

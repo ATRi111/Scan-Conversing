@@ -132,6 +132,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="ActiveEdgeContainer.h" />
+    <ClInclude Include="EdgeFlagAlgorithm.h" />
     <ClInclude Include="OrderedEdge.h" />
     <ClInclude Include="OrderedEdgeContainer.h" />
     <ClInclude Include="ScanConversingAlgorithm.h" />
@@ -140,6 +141,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ActiveEdgeContainer.cpp" />
+    <ClCompile Include="EdgeFlagAlgorithm.cpp" />
     <ClCompile Include="OrderedEdge.cpp" />
     <ClCompile Include="OrderedEdgeContainer.cpp" />
     <ClCompile Include="ScanConversingAlgorithm.cpp" />

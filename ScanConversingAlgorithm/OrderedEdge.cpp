@@ -29,7 +29,7 @@ int OrderedEdge::CurrentX() const
 	return lroundf(currentX);
 }
 OrderedEdge::OrderedEdge(Vector2Int from, Vector2Int to)
-    :yMin(from.y), yMax(to.y - 1), next(nullptr)
+    :yMin(from.y), yMax(to.y - 1), next(nullptr)    //[down.up)
 {
     deltaX = (to.x - from.x) / (float)(to.y - from.y);
     currentX = deltaX * (yMin - from.y - 1) + from.x;
