@@ -10,5 +10,7 @@ class XScanlineAlgorithm : public ScanConversingAlgorithm
 public:
 	OrderedEdgeContainer* orderedEdges;
 	ActiveEdgeContainer* activeEdges;
+	XScanlineAlgorithm();
+	~XScanlineAlgorithm();
 	void Scan(Vector2Int* vertices, int vertexCount, int** buffer, int width, int height) override;
 };

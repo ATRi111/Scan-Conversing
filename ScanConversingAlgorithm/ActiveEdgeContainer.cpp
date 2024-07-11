@@ -26,6 +26,10 @@ bool ActiveEdgeContainer::MoveUp(std::vector<int>& ret)
     if (edges.size() == 0)
         return false;
 
+    for (int i = 0; i < edges.size(); i++)
+    {
+        edges[i]->MoveUp();
+    }
     std::sort(edges.begin(), edges.end(), OrderedEdge::Compare);
     for (int i = 0; i < edges.size(); i++)
     {

@@ -135,6 +135,7 @@
     <ClInclude Include="EdgeFlagAlgorithm.h" />
     <ClInclude Include="OrderedEdge.h" />
     <ClInclude Include="OrderedEdgeContainer.h" />
+    <ClInclude Include="PolygonGenerator.h" />
     <ClInclude Include="ScanConversingAlgorithm.h" />
     <ClInclude Include="XScanlineAlgorithm.h" />
     <ClInclude Include="ScanConversing.h" />
@@ -144,6 +145,7 @@
     <ClCompile Include="EdgeFlagAlgorithm.cpp" />
     <ClCompile Include="OrderedEdge.cpp" />
     <ClCompile Include="OrderedEdgeContainer.cpp" />
+    <ClCompile Include="PolygonGenerator.cpp" />
     <ClCompile Include="ScanConversingAlgorithm.cpp" />
     <ClCompile Include="XScanlineAlgorithm.cpp" />
   </ItemGroup>

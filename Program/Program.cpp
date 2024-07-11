@@ -1,4 +1,5 @@
 #include "Program.h"
+#include<random>
 using namespace std;
 
 class MyAlgorithm : public ScanConversingAlgorithm
@@ -26,20 +27,15 @@ int main(int argc, char* argv[])
 
 	XScanlineAlgorithm algorithm1 = XScanlineAlgorithm();
 	EdgeFlagAlgorithm algorithm2 = EdgeFlagAlgorithm();
-	Vector2Int vertices[4] =
-	{
-		 Vector2Int(2, 4),
-		 Vector2Int(4, 4),
-		 Vector2Int(4, 8),
-		 Vector2Int(2, 8),
-	};
-	TestCase* t1 = new TestCase_ScanConversing(vertices, 4, 10, 10);
-	t1->Print();
-	TestAnswer* a1 = algorithm1.Run(t1, nullptr);
-	a1->Print();
-	cout << endl;
 
-	TestCase* t2 = new TestCase_ScanConversing(vertices, 4, 10, 10);
-	TestAnswer* a2 = algorithm2.Run(t2, nullptr);
-	a2->Print();
+	Vector2Int vs[4];
+	PolygonGenerator::Generate(vs, 4, 10, 10);
+	for (int i = 0; i < 4; i++)
+	{
+		cout << vs[i] << endl;
+	}
+	TestCase* t = new TestCase_ScanConversing(vs, 4, 10, 10);
+
+	TestAnswer* a = algorithm1.Run(t, nullptr);
+	a->Print();
 }

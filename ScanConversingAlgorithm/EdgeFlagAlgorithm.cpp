@@ -9,6 +9,11 @@ EdgeFlagAlgorithm* EdgeFlagAlgorithm::CreateEdgeFlagAlgorithm()
 	return new EdgeFlagAlgorithm();
 }
 
+EdgeFlagAlgorithm::EdgeFlagAlgorithm()
+	:xMin(0), yMin(0), xMax(0), yMax(0), buffer(nullptr), currentY(0)
+{
+}
+
 void EdgeFlagAlgorithm::Scan(Vector2Int* vertices, int vertexCount, int** buffer, int width, int height)
 {
 	this->buffer = buffer;
@@ -16,8 +21,8 @@ void EdgeFlagAlgorithm::Scan(Vector2Int* vertices, int vertexCount, int** buffer
 	xMax = yMax = INT_MIN;
 	for (int i = 0; i < vertexCount; i++)
 	{
-		int x = lroundf(vertices[i].x);
-		int y = lroundf(vertices[i].y);
+		int x = vertices[i].x;
+		int y = vertices[i].y;
 		if (x < xMin)
 			xMin = x;
 		else if (x > xMax)

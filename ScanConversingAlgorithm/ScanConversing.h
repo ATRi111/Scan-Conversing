@@ -5,3 +5,4 @@
 #include"XScanlineAlgorithm.h"
 #include"ScanConversingAlgorithm.h"
 #include"EdgeFlagAlgorithm.h"
+#include"PolygonGenerator.h"

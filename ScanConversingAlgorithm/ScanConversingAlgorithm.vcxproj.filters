@@ -36,6 +36,9 @@
     <ClInclude Include="EdgeFlagAlgorithm.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="PolygonGenerator.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ScanConversingAlgorithm.cpp">
@@ -54,6 +57,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="EdgeFlagAlgorithm.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="PolygonGenerator.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

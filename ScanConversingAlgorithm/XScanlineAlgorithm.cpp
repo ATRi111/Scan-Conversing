@@ -7,6 +7,17 @@ XScanlineAlgorithm* XScanlineAlgorithm::CreateXScanlineAlgorithm()
 	return new XScanlineAlgorithm();
 }
 
+XScanlineAlgorithm::XScanlineAlgorithm()
+	:activeEdges(nullptr), orderedEdges(nullptr)
+{
+}
+
+XScanlineAlgorithm::~XScanlineAlgorithm()
+{
+	delete activeEdges;
+	delete orderedEdges;
+}
+
 void XScanlineAlgorithm::Scan(Vector2Int* vertices, int vertexCount, int** buffer, int width, int height)
 {
 	vector<int> xs;
