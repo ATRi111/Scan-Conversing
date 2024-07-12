@@ -31,7 +31,7 @@ void XScanlineAlgorithm::Scan(Vector2Int* vertices, int vertexCount, int** buffe
 			{
 				buffer[j][activeEdges->currentY] = 1;
 			}
-			xs.clear();
 		}
+		xs.clear();
 	}
 }

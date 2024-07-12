@@ -23,14 +23,10 @@ void EdgeFlagAlgorithm::Scan(Vector2Int* vertices, int vertexCount, int** buffer
 	{
 		int x = vertices[i].x;
 		int y = vertices[i].y;
-		if (x < xMin)
-			xMin = x;
-		else if (x > xMax)
-			xMax = x;
-		if (y < yMin)
-			yMin = y;
-		else if (y > yMax)
-			yMax = y;
+		xMin = min(xMin, x);
+		xMax = max(xMax, x);
+		yMin = min(yMin, y);
+		yMax = max(yMax, y);
 		Discrete(vertices[i], vertices[(i + 1) % vertexCount]);
 	}
 
@@ -60,6 +56,6 @@ void EdgeFlagAlgorithm::Discrete(Vector2Int from, Vector2Int to)
 	for (int y = edge->yMin; y <= edge->yMax; y++)
 	{
 		edge->MoveUp();
-		buffer[edge->CurrentX()][y] = MARK - buffer[edge->CurrentX()][y]; //0¡úMARK,MARK¡ú0
+		buffer[edge->CurrentX()][y] = MARK - buffer[edge->CurrentX()][y]; //0â†’MARK,MARKâ†’0
 	}
 }

@@ -4,18 +4,18 @@ using namespace std;
 
 class MyAlgorithm : public ScanConversingAlgorithm
 {
-	//¿ÉÒÔÔÚÕâÀï¶¨Òå³ÉÔ±±äÁ¿ºÍ³ÉÔ±º¯Êı
+	//å¯ä»¥åœ¨è¿™é‡Œå®šä¹‰æˆå‘˜å˜é‡å’Œæˆå‘˜å‡½æ•°
 public:
 	static MyAlgorithm* CreateMyAlgorithm()
 	{
 		return new MyAlgorithm();
 	}
 
-	//bufferÏàµ±ÓÚÑÕÉ«»º³å,×óÏÂ½Ç×ø±êÎª(0,0)£¬ÓÒÉÏ½Ç×ø±êÎª(width-1,height-1)
-	//¸ù¾İÊäÈëµÄvertices,¸üĞÂbuffer,²»ÔÚ¶à±ßĞÎÄÚ²¿µÄµã±£³ÖÄ¬ÈÏÖµ0£¬ÔÚ¶à±ßĞÎÄÚ²¿µÄµãÓ¦ÉèÎª1
+	//bufferç›¸å½“äºé¢œè‰²ç¼“å†²,å·¦ä¸‹è§’åæ ‡ä¸º(0,0)ï¼Œå³ä¸Šè§’åæ ‡ä¸º(width-1,height-1)
+	//æ ¹æ®è¾“å…¥çš„vertices,æ›´æ–°buffer,ä¸åœ¨å¤šè¾¹å½¢å†…éƒ¨çš„ç‚¹ä¿æŒé»˜è®¤å€¼0ï¼Œåœ¨å¤šè¾¹å½¢å†…éƒ¨çš„ç‚¹åº”è®¾ä¸º1
 	void Scan(Vector2Int* vertices, int vertexCount, int** buffer, int width, int height) override
 	{
-		//Íê³ÉÕâ¸öº¯Êı
+		//å®Œæˆè¿™ä¸ªå‡½æ•°
 	}
 };
 
@@ -23,8 +23,9 @@ int main(int argc, char* argv[])
 {
 	string path = argv[0];
 	path = path.substr(0, path.find_last_of('\\')) + "\\Answer.txt";
-	int times = 100;		//¿ØÖÆËã·¨ÔËĞĞ´ÎÊı£»²âÊÔ¼¯ÖĞ°üº¬100¸ö²âÊÔÓÃÀı£¬Ôò×ÜÔËĞĞ´ÎÊı=times¡Á100
+	int times = 10000;		//æ§åˆ¶ç®—æ³•è¿è¡Œæ¬¡æ•°ï¼›æµ‹è¯•é›†ä¸­åŒ…å«100ä¸ªæµ‹è¯•ç”¨ä¾‹ï¼Œåˆ™æ€»è¿è¡Œæ¬¡æ•°=timesÃ—100
 
-	//TestXScanlineAlgorithm(path, times);
+	//GenerateAnswers(path);
+	TestXScanlineAlgorithm(path, times);
 	TestEdgeFlagAlgorithm(path, times);
 }
