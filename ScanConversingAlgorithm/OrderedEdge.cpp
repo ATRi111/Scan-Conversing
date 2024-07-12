@@ -8,9 +8,7 @@ bool OrderedEdge::Compare(OrderedEdge* x, OrderedEdge* y)
         return false;
     if (x->deltaX < y->deltaX)
         return true;
-    if (x->deltaX > y->deltaX)
-        return false;
-    return true;
+    return false;
 }
 OrderedEdge* OrderedEdge::TryCreateOrderedEdge(Vector2Int& a, Vector2Int& b)
 {
