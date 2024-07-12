@@ -1,8 +1,44 @@
 #pragma once
 #include"Vector2.h"
+#include<string>
+#include<vector>
+#include<ctype.h>
+
+inline std::vector<std::string> SplitVector(std::string s)
+{
+	if (!isdigit(s[0]))
+		s = s.substr(1, s.length() - 2);
+	std::vector<std::string> ret;
+	size_t i = s.find_first_of(',');
+	while (i != std::string::npos)
+	{
+		ret.emplace_back(s.substr(0, i));
+		if (i + 1 >= s.length())
+		{
+			s = "";
+			break;
+		}
+		else
+			s = s.substr(i + 1);
+		i = s.find_first_of(',');
+	}
+	if (s != "")
+	{
+		ret.push_back(s);
+	}
+	return ret;
+}
 
 struct Vector2Int
 {
+	static Vector2Int FromString(std::string s)
+	{
+		auto ss = SplitVector(s);
+		int x = std::stoi(ss[0]);
+		int y = std::stoi(ss[1]);
+		return Vector2Int(x, y);
+	}
+
 	const static Vector2Int Zero;
 	const static Vector2Int One;
 	const static Vector2Int Up;

@@ -17,6 +17,8 @@ struct TestCase_ScanConversing : TestCase
 	int width, height;
 	TestCase_ScanConversing(Vector2Int* vertices, int vertexCount, int width, int height);
 	~TestCase_ScanConversing();
+
+	TestCase_ScanConversing* Clone() const;
 	void Print() const override;
 };
 
@@ -27,7 +29,15 @@ struct TestAnswer_ScanConversing : TestAnswer
 	int** buffer;
 	int width;
 	int height;
+
 	TestAnswer_ScanConversing(int** buffer, int width, int height);
 	bool Match(TestAnswer* other) const override;
 	void Print() const override;
+};
+
+class TestSerializer_ScanConversing : public TestSerializer
+{
+public:
+	virtual void Serialize(std::ofstream& stream, const TestSet& set) const override;
+	virtual TestSet Deserialize(std::ifstream& stream) const override;
 };

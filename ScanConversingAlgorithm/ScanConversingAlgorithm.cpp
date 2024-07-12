@@ -46,6 +46,10 @@ TestCase_ScanConversing::~TestCase_ScanConversing()
 	}
 	delete[] buffer;
 }
+TestCase_ScanConversing* TestCase_ScanConversing::Clone() const
+{
+	return new TestCase_ScanConversing(vertices, vertexCount, width, height);
+}
 void TestCase_ScanConversing::Print() const
 {
 	cout << "顶点序列:";
@@ -98,3 +102,82 @@ void TestAnswer_ScanConversing::Print() const
 	PrintBuffer(buffer, width, height);
 }
 #pragma endregion
+
+void TestSerializer_ScanConversing::Serialize(std::ofstream& stream, const TestSet& set) const
+{
+	for (int i = 0; i < set.cases.size(); i++)
+	{
+		TestCase_ScanConversing* c = dynamic_cast<TestCase_ScanConversing*>(set.cases[i]);
+		TestAnswer_ScanConversing* a = dynamic_cast<TestAnswer_ScanConversing*>(set.answers[i]);
+		if (c && a)
+		{
+			stream << c->vertexCount << " ";
+			for (int i = 0; i < c->vertexCount; i++)
+			{
+				stream << c->vertices[i] << " ";
+			}
+			stream << c->width << " ";
+			stream << c->height << " ";
+			for (int i = 0; i < c->width; i++)
+			{
+				for (int j = 0; j < c->height; j++)
+				{
+					stream << c->buffer[i][j];
+				}
+			}
+			stream << endl;
+		}
+	}
+}
+
+TestSet TestSerializer_ScanConversing::Deserialize(std::ifstream& stream) const
+{
+	std::vector<TestCase*> cases;
+	std::vector<TestAnswer*> answers;
+	string s;
+	while (getline(stream, s))
+	{
+		int vertexCount, width, height;
+		Vector2Int* vertices;
+		vector<string> ss = Split(s, ' ');
+		int i = 0;
+		try
+		{
+			vertexCount = stoi(ss[i]);
+			i++;
+			vertices = new Vector2Int[vertexCount];
+			for (int j = 0; j < vertexCount; j++)
+			{
+				vertices[j] = Vector2Int::FromString(ss[i]);
+				i++;
+			}
+			width = stoi(ss[i]);
+			i++;
+			height = stoi(ss[i]);
+			i++;
+			cases.emplace_back(new TestCase_ScanConversing(vertices, vertexCount, width, height));
+
+			int** buffer = new int* [width];
+			string sbuffer = ss[i];
+			i = 0;
+			for (int j = 0; j < width; j++)
+			{
+				buffer[j] = new int[height];
+			}
+			for (int j = 0; j < width; j++)
+			{
+				for (int k = 0; k < height; k++)
+				{
+					buffer[j][k] = stoi(ss[i]);
+					i++;
+				}
+			}
+			answers.emplace_back(new TestAnswer_ScanConversing(buffer, width, height));
+		}
+		catch (...)
+		{
+			continue;
+		}
+	}
+	return TestSet(cases, answers, Algorithm::CreateDefault);
+}

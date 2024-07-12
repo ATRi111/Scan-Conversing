@@ -6,8 +6,8 @@
 
 class XScanlineAlgorithm : public ScanConversingAlgorithm
 {
-	static XScanlineAlgorithm* CreateXScanlineAlgorithm();
 public:
+	static XScanlineAlgorithm* CreateXScanlineAlgorithm();
 	OrderedEdgeContainer* orderedEdges;
 	ActiveEdgeContainer* activeEdges;
 	XScanlineAlgorithm();

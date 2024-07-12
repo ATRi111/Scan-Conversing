@@ -3,9 +3,9 @@
 
 class EdgeFlagAlgorithm : public ScanConversingAlgorithm
 {
-	static EdgeFlagAlgorithm* CreateEdgeFlagAlgorithm();
 	const static int MARK;
 public:
+	static EdgeFlagAlgorithm* CreateEdgeFlagAlgorithm();
 	int xMin, xMax, yMin, yMax;
 	int currentY;
 	//this class does not take ownership of buffer

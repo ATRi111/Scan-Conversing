@@ -23,19 +23,8 @@ int main(int argc, char* argv[])
 {
 	string path = argv[0];
 	path = path.substr(0, path.find_last_of('\\')) + "\\Answer.txt";
-	int times = 100;		//控制算法运行次数；测试集中包含100个测试用例，则总运行次数=times×100
+	int times = 1;		//控制算法运行次数；测试集中包含100个测试用例，则总运行次数=times×100
 
-	XScanlineAlgorithm algorithm1 = XScanlineAlgorithm();
-	EdgeFlagAlgorithm algorithm2 = EdgeFlagAlgorithm();
-
-	Vector2Int vs[4];
-	PolygonGenerator::Generate(vs, 4, 10, 10);
-	for (int i = 0; i < 4; i++)
-	{
-		cout << vs[i] << endl;
-	}
-	TestCase* t = new TestCase_ScanConversing(vs, 4, 10, 10);
-
-	TestAnswer* a = algorithm1.Run(t, nullptr);
-	a->Print();
+	TestXScanlineAlgorithm(path, times);
+	TestEdgeFlagAlgorithm(path, times);
 }
