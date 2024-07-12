@@ -95,10 +95,11 @@ bool TestAnswer_ScanConversing::Match(TestAnswer* other) const
 				return false;
 		}
 	}
-	return false;
+	return true;
 }
 void TestAnswer_ScanConversing::Print() const
 {
+	cout << endl;
 	PrintBuffer(buffer, width, height);
 }
 #pragma endregion
@@ -141,43 +142,37 @@ TestSet TestSerializer_ScanConversing::Deserialize(std::ifstream& stream) const
 		Vector2Int* vertices;
 		vector<string> ss = Split(s, ' ');
 		int i = 0;
-		try
+		
+		vertexCount = stoi(ss[i]);
+		i++;
+		vertices = new Vector2Int[vertexCount];
+		for (int j = 0; j < vertexCount; j++)
 		{
-			vertexCount = stoi(ss[i]);
+			vertices[j] = Vector2Int::FromString(ss[i]);
 			i++;
-			vertices = new Vector2Int[vertexCount];
-			for (int j = 0; j < vertexCount; j++)
+		}
+		width = stoi(ss[i]);
+		i++;
+		height = stoi(ss[i]);
+		i++;
+		cases.emplace_back(new TestCase_ScanConversing(vertices, vertexCount, width, height));
+
+		int** buffer = new int* [width];
+		string sbuffer = ss[i];
+		i = 0;
+		for (int j = 0; j < width; j++)
+		{
+			buffer[j] = new int[height];
+		}
+		for (int j = 0; j < width; j++)
+		{
+			for (int k = 0; k < height; k++)
 			{
-				vertices[j] = Vector2Int::FromString(ss[i]);
+				buffer[j][k] = sbuffer[i] - '0';
 				i++;
 			}
-			width = stoi(ss[i]);
-			i++;
-			height = stoi(ss[i]);
-			i++;
-			cases.emplace_back(new TestCase_ScanConversing(vertices, vertexCount, width, height));
-
-			int** buffer = new int* [width];
-			string sbuffer = ss[i];
-			i = 0;
-			for (int j = 0; j < width; j++)
-			{
-				buffer[j] = new int[height];
-			}
-			for (int j = 0; j < width; j++)
-			{
-				for (int k = 0; k < height; k++)
-				{
-					buffer[j][k] = stoi(ss[i]);
-					i++;
-				}
-			}
-			answers.emplace_back(new TestAnswer_ScanConversing(buffer, width, height));
 		}
-		catch (...)
-		{
-			continue;
-		}
+		answers.emplace_back(new TestAnswer_ScanConversing(buffer, width, height));
 	}
 	return TestSet(cases, answers, Algorithm::CreateDefault);
 }

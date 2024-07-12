@@ -8,8 +8,8 @@ std::uniform_int_distribution<int> distrbution(3, 8);
 
 TestCase_ScanConversing* GenerateTestCase()
 {
-	int width = 20;
-	int height = 20;
+	int width = 10;
+	int height = 10;
 	int vertexCount = distrbution(engine);
 	Vector2Int* vertices = new Vector2Int[vertexCount];
 	PolygonGenerator::Generate(vertices, vertexCount, width, height);
@@ -40,4 +40,19 @@ void TestEdgeFlagAlgorithm(std::string path, int times)
 {
 	std::cout << "边标志算法:" << std::endl;
 	Test(path, times, EdgeFlagAlgorithm::CreateEdgeFlagAlgorithm);
+}
+
+//调用此函数会导致存放答案的文件被修改
+void GenerateAnswers(std::string path)
+{
+	std::vector<TestCase*> cases;
+	std::vector<TestAnswer*> answers;
+	for (int i = 0; i < 100; i++)
+	{
+		cases.push_back(GenerateTestCase());
+	}
+	TestSet set(cases, answers, XScanlineAlgorithm::CreateXScanlineAlgorithm);
+	set.GenerateAnswers();
+	TestSerializer_ScanConversing s;
+	s.SerializeTo(path, set);
 }
