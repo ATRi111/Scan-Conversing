@@ -1,4 +1,4 @@
-#include "Program.h"
+﻿#include "Program.h"
 #include<random>
 using namespace std;
 
@@ -19,6 +19,12 @@ public:
 	}
 };
 
+static void TestMyAlgorithm(std::string path, int times)
+{
+	std::cout << "我的扫描转换算法:" << std::endl;
+	Test(path, times, MyAlgorithm::CreateMyAlgorithm);
+}
+
 int main(int argc, char* argv[])
 {
 	string path = argv[0];
@@ -28,4 +34,5 @@ int main(int argc, char* argv[])
 	//GenerateAnswers(path);
 	TestXScanlineAlgorithm(path, times);
 	TestEdgeFlagAlgorithm(path, times);
+	TestMyAlgorithm(path, times);
 }
