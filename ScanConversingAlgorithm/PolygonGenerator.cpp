@@ -5,18 +5,6 @@
 #include<chrono>
 using namespace std;
 
-namespace std 
-{
-	template <>
-	struct hash<Vector2Int> 
-	{
-		size_t operator()(const Vector2Int& v) const 
-		{
-			return hash<int>()(v.x) ^ hash<int>()((v.y));
-		}
-	}; 
-}
-
 mt19937 PolygonGenerator::engine(std::chrono::system_clock::now().time_since_epoch().count());
 
 void PolygonGenerator::Generate(Vector2Int* vertices,int vertexCount, int width, int height)

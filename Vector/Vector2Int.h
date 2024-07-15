@@ -1,6 +1,6 @@
 #pragma once
-#include"Vector2.h"
 #include<string>
+#include<iostream>
 #include<vector>
 #include<ctype.h>
 
@@ -98,4 +98,16 @@ inline std::ostream& operator<<(std::ostream& stream, const Vector2Int& v)
 {
 	stream << "(" << v.x << "," << v.y << ")";
 	return stream;
+}
+
+namespace std
+{
+	template <>
+	struct hash<Vector2Int>
+	{
+		size_t operator()(const Vector2Int& v) const
+		{
+			return hash<int>()(v.x) ^ hash<int>()((v.y));
+		}
+	};
 }
