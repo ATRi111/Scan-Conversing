@@ -15,6 +15,7 @@ struct TestCase_ScanConversing : TestCase
 	int vertexCount;
 	int** buffer;
 	int width, height;
+	//this class takes ownership of vertices(shallow copy)
 	TestCase_ScanConversing(Vector2Int* vertices, int vertexCount, int width, int height);
 	~TestCase_ScanConversing();
 
