@@ -61,16 +61,16 @@ void TestCase_ScanConversing::Print() const
 #pragma region TestAnswer_ScanConversing
 void TestAnswer_ScanConversing::PrintBuffer(int** buffer, int width, int height)
 {
-	char* line = new char[width + 1];
-	for (int i = height - 1; i >= 0; i--)
+	int** colorBuffer = new int* [width];
+	for (int x = 0; x < width; x++)
 	{
-		for (int j = 0; j < width; j++)
+		colorBuffer[x] = new int[height];
+		for (int y = 0; y < height; y++)
 		{
-			line[j] = buffer[j][i] + '0';
+			colorBuffer[x][y] = buffer[x][y] ? BACKGROUND_RED : BACKGROUND_INTENSITY;
 		}
-		line[width] = '\0';
-		cout << line << endl;
 	}
+	ConsoleUtility::PrintBuffer(colorBuffer, width, height);
 }
 
 TestAnswer_ScanConversing::TestAnswer_ScanConversing(int** buffer,int width,int height)

@@ -2,6 +2,7 @@
 #include"ScanConversing.h"
 #include"Testframework.h"
 #include"Vector2Int.h"
+#include"ConsoleUtility.h"
 
 std::mt19937 engine(std::chrono::system_clock::now().time_since_epoch().count());
 std::uniform_int_distribution<int> distrbution(3, 8);

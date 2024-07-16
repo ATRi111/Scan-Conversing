@@ -27,6 +27,7 @@ static void TestMyAlgorithm(std::string path, int times)
 
 int main(int argc, char* argv[])
 {
+	ConsoleUtility::DisableWindowResize();
 	string path = argv[0];
 	path = path.substr(0, path.find("\\x64\\")) + "\\Answer.txt";
 	int times = 10000;		//控制算法运行次数；测试集中包含100个测试用例，则总运行次数=times×100
