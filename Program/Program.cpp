@@ -22,13 +22,13 @@ public:
 static void TestMyAlgorithm(std::string path, int times)
 {
 	std::cout << "我的扫描转换算法:" << std::endl;
-	Test(path, times, MyAlgorithm::CreateMyAlgorithm);
+	Test(path, times, 3, MyAlgorithm::CreateMyAlgorithm);
 }
 
 int main(int argc, char* argv[])
 {
 	string path = argv[0];
-	path = path.substr(0, path.find("\\x64")) + "\\Answer.txt";
+	path = path.substr(0, path.find("\\x64\\")) + "\\Answer.txt";
 	int times = 10000;		//控制算法运行次数；测试集中包含100个测试用例，则总运行次数=times×100
 
 	TestXScanlineAlgorithm(path, times);

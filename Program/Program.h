@@ -16,13 +16,13 @@ TestCase_ScanConversing* GenerateTestCase()
 	return new TestCase_ScanConversing(vertices, vertexCount, width, height);
 }
 
-void Test(std::string path, int times, const std::function<Algorithm* ()>& CreateSolution)
+void Test(std::string path, int times, int printTimes, const std::function<Algorithm* ()>& CreateSolution)
 {
 	TestSerializer_ScanConversing serializer;
 	TestSet set = TestSet(serializer.DeserializeFrom(path));
 	set.CreateSolution = CreateSolution;
 
-	set.AccuracyTest(3);
+	set.AccuracyTest(printTimes);
 	set.TimeTest(times);
 
 	set.DeleteAnswers();
@@ -33,13 +33,13 @@ void Test(std::string path, int times, const std::function<Algorithm* ()>& Creat
 void TestXScanlineAlgorithm(std::string path, int times)
 {
 	std::cout << "X扫描线算法:" << std::endl;
-	Test(path, times, XScanlineAlgorithm::CreateXScanlineAlgorithm);
+	Test(path, times, 0, XScanlineAlgorithm::CreateXScanlineAlgorithm);
 }
 
 void TestEdgeFlagAlgorithm(std::string path, int times)
 {
 	std::cout << "边标志算法:" << std::endl;
-	Test(path, times, EdgeFlagAlgorithm::CreateEdgeFlagAlgorithm);
+	Test(path, times, 0, EdgeFlagAlgorithm::CreateEdgeFlagAlgorithm);
 }
 
 //调用此函数会导致存放答案的文件被修改
