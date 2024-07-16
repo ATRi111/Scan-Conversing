@@ -9,8 +9,8 @@ std::uniform_int_distribution<int> distrbution(3, 8);
 
 TestCase_ScanConversing* GenerateTestCase()
 {
-	int width = 10;
-	int height = 10;
+	int width = 20;
+	int height = 20;
 	int vertexCount = distrbution(engine);
 	Vector2Int* vertices = new Vector2Int[vertexCount];
 	PolygonGenerator::Generate(vertices, vertexCount, width, height);
