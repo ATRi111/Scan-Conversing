@@ -43,8 +43,11 @@ double TestSet::AccuracyTest(int printTimes = 3, bool guranteed = false)
 		delete s;
 	}
 	sum /= cases.size();
-	cout << "运行这" << cases.size() << "个测试用例的准确率为";
-	cout << std::fixed << std::setprecision(2) << sum * 100.0 << "%" << std::endl;
+	if (!guranteed)
+	{
+		cout << "运行这" << cases.size() << "个测试用例的准确率为";
+		cout << std::fixed << std::setprecision(2) << sum * 100.0 << "%" << std::endl;
+	}
 	return sum;
 }
 void TestSet::GenerateAnswers()

@@ -40,7 +40,7 @@ void TestXScanlineAlgorithm(std::string path, int times)
 void TestEdgeFlagAlgorithm(std::string path, int times)
 {
 	std::cout << "边标志算法:" << std::endl;
-	Test(path, times, 1, EdgeFlagAlgorithm::CreateEdgeFlagAlgorithm, true);
+	Test(path, times, 0, EdgeFlagAlgorithm::CreateEdgeFlagAlgorithm, true);
 }
 
 //调用此函数会导致存放答案的文件被修改
