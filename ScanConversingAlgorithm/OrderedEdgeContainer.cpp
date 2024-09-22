@@ -27,17 +27,17 @@ OrderedEdgeContainer::OrderedEdgeContainer(Vector2Int* vertices, int vertexCount
     }
 }
 
-OrderedEdge* OrderedEdgeContainer::GetHead(int y)
+OrderedEdge* OrderedEdgeContainer::GetHead(int y) const
 {
     return list[y - yMin];
 }
 
-OrderedEdge** OrderedEdgeContainer::GetHeadPtr(int y)
+OrderedEdge** OrderedEdgeContainer::GetHeadPtr(int y) const
 {
     return list + (y - yMin);
 }
 
-void OrderedEdgeContainer::Add(OrderedEdge* edge)
+void OrderedEdgeContainer::Add(OrderedEdge* edge) const
 {
     OrderedEdge** headPtr = GetHeadPtr(edge->yMin);
     edge->next = *headPtr;  //insert to head
