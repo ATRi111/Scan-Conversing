@@ -13,7 +13,7 @@ public:
 
 	//buffer相当于颜色缓冲,左下角片元坐标为(0,0)，右上角片元坐标为(width-1,height-1)
 	//根据输入的vertices,更新buffer,不在多边形内部的点保持默认值0，在多边形内部的点应设为1
-	//注意填色时的边界问题，本项目遵循左闭右开，上闭下开的规则
+	//注意填色时的边界问题，本项目遵循左闭右开，下闭上开的规则
 	void Scan(Vector2Int* vertices, int vertexCount, int** buffer, int width, int height) override
 	{
 		//完成这个函数
